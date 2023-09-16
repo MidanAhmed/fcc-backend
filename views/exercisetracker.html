@@ -3,14 +3,18 @@
 
 <head>
     <title>Exercise Tracker</title>
-    <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="/public/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <div class="container">
-        <h1>Exercise tracker</h1>
+        <div class="hero">
+            <h1>Exercise Tracker</h1>
+            <a href="/">Go to Home</a>
+        </div>
         <form action="exercisetracker/api/users" method="post">
             <h3>Create a New User</h3>
             <p><code>POST /exercisetracker/api/users</code></p>
