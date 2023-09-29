@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="/public/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/public/project.css">
 </head>
 
 <body>
@@ -15,16 +16,31 @@
             <h1>URL Shortener</h1>
             <a href="/">Go to Home</a>
         </div>
+        <div class="content">
+            <p>This microservice helps to check if a url is valid or not, if valid, it returns a JSON response with
+                <b><i>original_url</i></b> and <b><i>short_url</i></b>, the <b><i>short_url</i></b> can then be used to
+                redirect the user to the <b><i>original_url</i></b>.</p>
+            <h3>Demo</h3>
+            <form action="urlshortener/api/shorturl" method="POST">
+                <input id="url_input" type="text" name="url" placeholder="https://www.freecodecamp.org/" />
+                <button type="submit">Post URL</button>
+            </form>
+            <hr>
+            <h3>Request</h3>
+            <div class="req">POST&nbsp;/api/shorturl</div>
+            <h3>Response</h3>
+            <div class="res">
+                <div class="res-key">original_url</div>
+                <div class="res-explain">Original URL, which is entered by the user.</div>
+                <div class="res-key">short_url</div>
+                <div class="res-explain">A unique generated id which can be used to redirect to the original_url by
+                    visiting /api/shorturl/&lt;short_url&gt;</div>
+            </div>
+            <h3>Example Output</h3>
+            <code>{"original_url":"https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/","short_url":0}</code>
+        </div>
         <main>
             <section>
-                <form action="urlshortener/api/shorturl" method="POST">
-                    <fieldset>
-                        <legend>URL Shortener</legend>
-                        <label for="url_input">URL:</label>
-                        <input id="url_input" type="text" name="url" placeholder="https://www.freecodecamp.org/" />
-                        <input type="submit" value="POST URL" />
-                    </fieldset>
-                </form>
             </section>
         </main>
     </div>

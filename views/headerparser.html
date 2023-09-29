@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="/public/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/public/project.css">
 </head>
 
 <body>
@@ -15,18 +16,32 @@
       <h1>Request Header Parser</h1>
       <a href="/">Go to Home</a>
     </div>
-    <h3>Example Usage:</h3>
-    <p>
-      <a href="headerparser/api/whoami">[base url]/headerparser/api/whoami</a>
-    </p>
-    <h3>Example Output:</h3>
-    <code>
-        {
-          "ipaddress":"::ffff:159.20.14.100",
-          "language":"en-US,en;q=0.5",
-          "software":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0"
-        }
+    <div class="content">
+      <p>Get IP address, language, software from the Incoming Header.</p>
+      <hr>
+      <h3>Request</h3>
+      <div class="req">GET&nbsp;/api/whoami</div>
+      <h3>Response</h3>
+      <div class="res">
+        <div class="res-key">ipaddress</div>
+        <div class="res-explain">Your IP address</div>
+        <div class="res-key">language</div>
+        <div class="res-explain">Your preferred language</div>
+        <div class="res-key">software</div>
+        <div class="res-explain">Your software used</div>
+      </div>
+      <h3>Example Input:</h3>
+      <ul>
+        <li><a href="headerparser/api/whoami">/api/whoami</a></li>
+      </ul>
+      <h3>Example Output:</h3>
+      <code>
+              { "ipaddress":"::ffff:159.20.14.100",
+                "language":"en-US,en;q=0.5",
+                "software":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0" }
       </code>
+    </div>
+    
   </div>
 </body>
 

@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="/public/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/public/project.css">
 </head>
 
 <body>
@@ -15,16 +16,26 @@
             <h1>Timestamp Microservice</h1>
             <a href="/">Go to Home</a>
         </div>
-        <div>
-            <h3>Example Usage:</h3>
+        <div class="content">
+            <p>Get UTC date and time.</p>
+            <hr>
+            <h3>Request</h3>
+            <div class="req">GET&nbsp;/api/{date}</div>
+            <h3>Response</h3>
+            <div class="res">
+                <div class="res-key">unix</div>
+                <div class="res-explain">A number that represents milliseconds since the midnight at the beginning of
+                    January 1, 1970, UTC (the epoch).</div>
+                <div class="res-key">utc</div>
+                <div class="res-explain">A string representing the given date using the UTC time zone.</div>
+            </div>
+            <h3>Example Input</h3>
             <ul>
-                <li><a href="timestamp/api/2015-12-25">[base url]/timestamp/api/2015-12-25</a></li>
-                <li><a href="timestamp/api/1451001600000">[base url]/timestamp/api/1451001600000</a></li>
+                <li><a href="timestamp/api/2015-12-25">/api/2015-12-25</a></li>
+                <li><a href="timestamp/api/1451001600000">/api/1451001600000</a></li>
             </ul>
-            <h3>Example Output:</h3>
-            <p>
-                <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
-            </p>
+            <h3>Example Output</h3>
+            <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
         </div>
     </div>
 </body>

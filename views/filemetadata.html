@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="/public/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/public/project.css">
 </head>
 
 <body>
@@ -15,14 +16,27 @@
             <h1>File Metadata</h1>
             <a href="/">Go to Home</a>
         </div>
-        <h3>Usage:</h3>
-        <p> Please Upload a File ... </p>
-        <div class="view">
-            <h4 id="output"></h4>
+        <div class="content">
+            <p>A microservice that outputs the name, type and size of the file</p>
+            <h3>Demo</h3>
             <form enctype="multipart/form-data" method="POST" action="/filemetadata/api/fileanalyse">
                 <input id="inputfield" type="file" name="upfile" required>
                 <input id="button" type="submit" value="Upload">
             </form>
+            <hr>
+            <h3>Request</h3>
+            <div class="req">POST&nbsp;/api/fileanalyse</div>
+            <h3>Response</h3>
+            <div class="res">
+                <div class="res-key">name</div>
+                <div class="res-explain">File name</div>
+                <div class="res-key">type</div>
+                <div class="res-explain">Type of file</div>
+                <div class="res-key">size</div>
+                <div class="res-explain">Size of the file in bytes</div>
+            </div>
+            <h3>Example Output</h3>
+            <code>{ "name":"393300_html5_icon.ico","type":"image/x-icon","size":10977 }</code>
         </div>
     </div>
 </body>

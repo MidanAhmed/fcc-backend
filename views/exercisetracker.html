@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="/public/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/public/project.css">
 </head>
 
 <body>
@@ -15,27 +16,77 @@
             <h1>Exercise Tracker</h1>
             <a href="/">Go to Home</a>
         </div>
-        <form action="exercisetracker/api/users" method="post">
-            <h3>Create a New User</h3>
-            <p><code>POST /exercisetracker/api/users</code></p>
-            <input id="uname" type="text" name="username" placeholder="username" />
-            <input type="submit" value="Submit" />
-        </form>
-        <form id="exercise-form" method="post">
-            <h3>Add exercises</h3>
-            <p><code>POST /exercisetracker/api/users/:_id/exercises</code></p>
-            <input id="uid" type="text" name=":_id" placeholder=":_id" />
-            <input id="desc" type="text" name="description" placeholder="description*" />
-            <input id="dur" type="text" name="duration" placeholder="duration* (mins.)" />
-            <input id="date" type="text" name="date" placeholder="date (yyyy-mm-dd)" />
-            <input type="submit" value="Submit" />
-        </form>
-        <p>
-            <strong>GET user's exercise log: </strong>
-            <code>GET /exercisetracker/api/users/:_id/logs?[from][&amp;to][&amp;limit]</code>
-        </p>
-        <p><strong>[ ]</strong> = optional</p>
-        <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+        <div class="content">
+            <p>A microservice that allows us to create a new user, add an exercise to the related user and get the
+                exercise log of an user.</p>
+            <h3>Demo</h3>
+            <ul>
+                <li>
+                    <h4>Create a new user</h4>
+                    <form action="exercisetracker/api/users" method="post">
+                        <input id="uname" type="text" name="username" placeholder="username" />
+                        <button type="submit">Submit</button>
+                    </form>
+                </li>
+                <li>
+                    <h4>Add exercises</h4>
+                    <form id="exercise-form" method="post">
+                        <input id="uid" type="text" name=":_id" placeholder=":_id" />
+                        <input id="desc" type="text" name="description" placeholder="description*" />
+                        <input id="dur" type="text" name="duration" placeholder="duration* (mins.)" />
+                        <input id="date" type="text" name="date" placeholder="date (yyyy-mm-dd)" />
+                        <button type="submit">Submit</button>
+                    </form>
+                </li>
+            </ul>
+            <hr>
+            <h3>Request</h3>
+            <div class="req">POST&nbsp;/api/users</div>
+            <h3>Response</h3>
+            <div class="res">
+                <div class="res-key">_id</div>
+                <div class="res-explain">A unique generated id assigned to the user.</div>
+                <div class="res-key">username</div>
+                <div class="res-explain">The username given by the user.</div>
+            </div>
+            <h3>Example Output</h3>
+            <code>{ username: "fcc_test", _id: "5fb5853f734231456ccb3b05" }</code>
+            <hr>
+            <h3>Request</h3>
+            <div class="req">POST&nbsp;/api/users/:_id/exercises</div>
+            <h3>Response</h3>
+            <div class="res">
+                <div class="res-key">_id</div>
+                <div class="res-explain">A unique generated id assigned to the user.</div>
+                <div class="res-key">username</div>
+                <div class="res-explain">The username given by the user.</div>
+                <div class="res-key">description</div>
+                <div class="res-explain">The description of the exercise.</div>
+                <div class="res-key">date</div>
+                <div class="res-explain">The date given by the user. Defaults to current date if left empty.</div>
+                <div class="res-key">duration</div>
+                <div class="res-explain">The duration of the exercise in minutes.</div>
+            </div>
+            <h3>Example Output</h3>
+            <code>{ username: "fcc_test", description: "test", duration: 60, date: "Mon Jan 01 1990", _id: "5fb5853f734231456ccb3b05" }</code>
+            <hr>
+            <h3>Request</h3>
+            <div class="req">GET&nbsp;/api/users/:_id/logs&quest;[from][&to][&limit]</div>
+            <h3>Response</h3>
+            <div class="res">
+                <div class="res-key">_id</div>
+                <div class="res-explain">A unique generated id assigned to the user.</div>
+                <div class="res-key">username</div>
+                <div class="res-explain">The username given by the user.</div>
+                <div class="res-key">count</div>
+                <div class="res-explain">Number of logs returned.</div>
+                <div class="res-key">log</div>
+                <div class="res-explain">An array containing exercises.</div>
+            </div>
+            <h3>Example Output</h3>
+            <code>{ username: "fcc_test", count: 1, _id: "5fb5853f734231456ccb3b05", log: [{ description: "test", duration: 60, date: "Mon
+            Jan 01 1990", }] }</code>
+        </div>
     </div>
     <script>
         const exerciseForm = document.getElementById("exercise-form");
