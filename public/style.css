@@ -29,6 +29,7 @@ body {
 
 code{
 	margin-bottom: .8rem;
+	overflow: scroll;
 }
 
 a {
