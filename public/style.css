@@ -29,7 +29,7 @@ body {
 
 code{
 	margin-bottom: .8rem;
-	overflow: scroll;
+	overflow: auto;
 }
 
 a {
